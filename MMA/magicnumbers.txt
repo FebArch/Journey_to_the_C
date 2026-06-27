@@ -1,0 +1,5 @@
+pi 3.142
+golden_ratio 1.618
+euler_num 2.718
+c 3
+Avogadro 6.022 
