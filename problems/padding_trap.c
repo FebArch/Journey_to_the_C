@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+#pragma pack(1)
+// struct ModelConfig{
+//     int magic_number;
+//     char version;
+//     int vocab_size;
+// };
+
+// struct __atrribute__((packed)) ModelConfig not workable here for GCC compiler
+
 struct ModelConfig{
     int magic_number;
     char version;
@@ -31,7 +40,7 @@ int main(){
 
     printf("size of struct ModelConfig is: %zu\n", sizeof(struct ModelConfig));
 
-    fp = fopen("config.bin", "wb");
+    fp = fopen("config1.bin", "wb");
     if (fp==NULL)
     {
         printf("Failed to open the file in write binary mode!");
