@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-#pragma pack(1)
+// #pragma pack(1)
 // struct ModelConfig{
 //     int magic_number;
 //     char version;
 //     int vocab_size;
 // };
 
-// struct __atrribute__((packed)) ModelConfig not workable here for GCC compiler
+// struct __attribute__((packed)) ModelConfig not workable here for GCC compiler
 
 struct ModelConfig{
     int magic_number;
@@ -25,9 +25,6 @@ int main(){
     };
 
     struct ModelConfig *ptr1 = &v1;
-    
-    struct ModelConfig v2;
-    struct ModelConfig *ptr2 = &v2;
 
     // values are stored in contiguous block and not randomnly arranged
     printf("- %p\n", &v1.magic_number);
@@ -40,7 +37,7 @@ int main(){
 
     printf("size of struct ModelConfig is: %zu\n", sizeof(struct ModelConfig));
 
-    fp = fopen("config1.bin", "wb");
+    fp = fopen("config.bin", "wb");
     if (fp==NULL)
     {
         printf("Failed to open the file in write binary mode!");
