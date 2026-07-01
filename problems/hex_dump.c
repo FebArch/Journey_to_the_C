@@ -2,7 +2,8 @@
 
 int main(){
     unsigned char c[12];
-    size_t bytes_read;
+    size_t bytes_read = 0;
+    int offset=0;
     // int c;
 
     // struct ModelConfig v1={
@@ -19,13 +20,14 @@ int main(){
         return 1;
     }
     
-    while ((bytes_read = fread(c, sizeof(unsigned char), 4, fp)) > 0)
+    while ((bytes_read = fread(&c[offset], sizeof(unsigned char), 4, fp)) > 0)
     {
         // printf(">> %zu\n", bytes_read);
-        for (int i = 0; i < bytes_read; i++)
+        for (int i = offset; i < (bytes_read+offset); i++)
         {
             printf("%02x, ", c[i]);
         }
+        offset += bytes_read;
         printf("\n");
     }
     
