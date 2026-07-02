@@ -8,10 +8,10 @@ struct PlayerStat{
     float x_position;
 };
 
-void main(){
+int main(){
     struct PlayerStat loaded_player;
     FILE *fp;
-    size_t readed;
+    size_t items_read;
 
     printf("sizeof of player stat is %zu\n", sizeof(struct PlayerStat));
 
@@ -20,12 +20,12 @@ void main(){
     if (fp == NULL)
     {
         printf("file failed to read in rb mode!\n");
-        return;
+        return 1;
     }
     
 
-    readed = fread(&loaded_player, sizeof(struct PlayerStat), 1, fp);
-    if (readed > 0)
+    items_read = fread(&loaded_player, sizeof(struct PlayerStat), 1, fp);
+    if (items_read == 1)
     {
         printf("Player HP: %d\n", loaded_player.HP);
         printf("Player Rank: %c\n", loaded_player.rank);
@@ -35,4 +35,5 @@ void main(){
     }
     
     fclose(fp);
+    return 0;
 }
