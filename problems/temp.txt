@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void storeWeights(unsigned char* farr, int len);
+
+
+int main(){
+    unsigned char *arr = malloc(32);
+
+    storeWeights(arr, 16);
+
+
+    for (int i = 0; i < 16; i++)
+    {
+        printf("%p, ", *(arr+i));
+    }
+
+
+    return 0;
+}
+
+void storeWeights(unsigned char* farr, int len){
+    float *weight = (float*) farr;
+    weight[0] = 3.14;
+    weight[1] = 4.14;
+    weight[2] = 5.14;
+    weight[3] = 31.14;
+}
