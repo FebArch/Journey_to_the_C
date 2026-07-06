@@ -35,7 +35,7 @@ int main(){
 }
 
 void storeWeights(unsigned char* arr){
-    float* fptr = (float *) arr;
+    float* fptr = arr;
     fptr[0] = 3.145;
     fptr[1] = 4.145;
     fptr[2] = 56.145;
@@ -43,7 +43,7 @@ void storeWeights(unsigned char* arr){
 }
 
 void storeBias(unsigned char* arr){
-    int* iptr = (int*) arr;
+    int* iptr = arr;
     iptr[0] = 91;
     iptr[1] = 21;
     iptr[2] = 41;
