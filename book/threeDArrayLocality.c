@@ -13,13 +13,15 @@ int main(){
     };
     int product=1, N=3;
 
-    for (int i = N-1; i >= 0; i--)
+    // loops permuted!
+
+    for (int j = N-1; j >= 0; j--)
     {
-        for (int j = N-1; j >= 0; j--)
+        for (int k = N-1; k >= 0; k--)
         {
-            for (int k = N-1; k >= 0; k--){
-                // product *= arr[j][k][i];   //  Poor Spatial Locality
-                product *= arr[i][j][k];   //  Good Spatial Locality
+            for (int i = N-1; i >= 0; i--){
+                product *= arr[j][k][i];   //  Poor Spatial Locality
+                // product *= arr[i][j][k];   //  Good Spatial Locality
             }
         }
     }
